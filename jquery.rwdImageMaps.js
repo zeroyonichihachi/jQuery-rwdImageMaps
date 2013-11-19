@@ -36,6 +36,12 @@
 							h = temp.height;
 					}
 					
+                    // To get the natural width and height on Webkit, just use this.(width/height).
+                    // This would work fine in the narrow band environment and/or for the large size
+                    // image which causes the image loading latency.
+                    if (!w) w = this.width;
+                    if (!h) h = this.height;
+
 					var wPercent = $that.width()/100,
 						hPercent = $that.height()/100,
 						map = $that.attr('usemap').replace('#', ''),
